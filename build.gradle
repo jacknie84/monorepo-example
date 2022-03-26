@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'com.jacknie.examples'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+
+allprojects {
+    repositories {
+        maven {
+            url = 'http://localhost:8081/repository/maven-snapshots/'
+            allowInsecureProtocol = true
+            credentials {
+                username = 'gradle'
+                password = 'qwer1234'
+            }
+        }
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    publishing {
+        repositories {
+            maven {
+                url = 'http://localhost:8081/repository/maven-snapshots/'
+                allowInsecureProtocol = true
+                credentials {
+                    username = 'gradle'
+                    password = 'qwer1234'
+                }
+            }
+        }
+    }
+}

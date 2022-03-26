@@ -1,0 +1,14 @@
+group = 'com.jacknie.examples'
+version = '0.0.1-SNAPSHOT'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.jacknie.examples:core-module:0.0.1-20220326.033515-1'
+}
